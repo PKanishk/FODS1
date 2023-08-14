@@ -1,0 +1,12 @@
+import pandas as pd
+data=pd.read_csv("customer data.csv")
+cust=data.groupby("customerid")
+sum=cust["quantity"].sum()
+print(sum)
+prod=data.groupby("product name")
+avg=prod["quantity"].mean()
+print(avg)
+c=pd.to_datetime(data["date"])
+eod=c.min()
+lod=c.max()
+print("earliest order date and last order date:",eod,lod)
